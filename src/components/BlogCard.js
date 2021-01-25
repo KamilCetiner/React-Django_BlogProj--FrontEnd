@@ -15,11 +15,12 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import foto from "../assets/react.jpeg";
+// import foto from "../assets/react.jpeg";
 
 const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
+      marginTop: 50
     },
     media: {
       height: 0,
@@ -66,7 +67,8 @@ const BlogCard = () => {
       />
       <CardMedia
         className={classes.media}
-        image={foto}
+        image={'https://miro.medium.com/max/4000/1*ZyYYEl1Ee0g4K9aQCqbMhw.png'}
+        
         title="Paella dish"
       />
       <CardContent>
