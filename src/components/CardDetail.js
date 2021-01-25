@@ -6,7 +6,6 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-// import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -15,13 +14,45 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Collapse from '@material-ui/core/Collapse';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
 // import foto from "../assets/react.png";
+import TextField from '@material-ui/core/TextField';
+import {
+
+    withStyles,
+    
+  } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+
+
+
+
+
+
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
-    marginTop : 50
+    // maxWidth: 350,
+    marginTop : 50,
+    paddingRight : 150,
+    paddingLeft : 150
+  },
+  rootform: {
+      display: 'flex',
+      justifyContent: 'flex-start',
+      flexdirection: 'column'
+  },
+  root2: {
+    maxWidth: 350,
+    marginTop : 50,
+    // paddingRight : 150,
+    paddingLeft : 20
   },
   media: {
     height: 0,
@@ -42,7 +73,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BlogCard() {
+const CssTextField = withStyles({
+    root: {
+      '& label.Mui-focused': {
+        color: 'green',
+      },
+      '& .MuiInput-underline:after': {
+        borderBottomColor: 'green',
+      },
+      '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: 'red',
+        },
+        '&:hover fieldset': {
+          borderColor: 'yellow',
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: 'green',
+        },
+      },
+    },
+  })(TextField);
+export default function CardDetail() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -50,8 +102,10 @@ export default function BlogCard() {
     setExpanded(!expanded);
   };
 
+  const matches = useMediaQuery('(min-width:750px)');
+
   return (
-    <Card className={classes.root}>
+    <Card className={matches ? classes.root : classes.root2}>
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
@@ -98,7 +152,38 @@ export default function BlogCard() {
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
-      {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <Typography>Comments</Typography>
+      <form className={classes.rootform} noValidate>
+
+       <TextField
+          id="filled-full-width"
+          label="Comments"
+          style={{ margin: 8 }}
+          placeholder="leave your Comments"
+          helperText="Full width!"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="filled"
+          display='flex'
+        
+
+        /> 
+        
+
+        <Button
+        variant="contained"
+        color="primary"
+        className={classes.button}
+        
+      >
+        SEND
+      </Button>
+
+        </form>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Method:</Typography>
           <Typography paragraph>
@@ -124,7 +209,7 @@ export default function BlogCard() {
             Set aside off of the heat to let rest for 10 minutes, and then serve.
           </Typography>
         </CardContent>
-      </Collapse> */}
+      </Collapse>
     </Card>
   );
 }
