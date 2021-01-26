@@ -29,19 +29,16 @@ import Icon from '@material-ui/core/Icon';
 
 
 
-
-
-
-
-
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     // maxWidth: 350,
     marginTop : 50,
     paddingRight : 150,
     paddingLeft : 150
+  },
+  button: {
+    margin: theme.spacing(1),
+    height:55
   },
   rootform: {
       display: 'flex',
@@ -73,27 +70,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CssTextField = withStyles({
-    root: {
-      '& label.Mui-focused': {
-        color: 'green',
-      },
-      '& .MuiInput-underline:after': {
-        borderBottomColor: 'green',
-      },
-      '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-          borderColor: 'red',
-        },
-        '&:hover fieldset': {
-          borderColor: 'yellow',
-        },
-        '&.Mui-focused fieldset': {
-          borderColor: 'green',
-        },
-      },
-    },
-  })(TextField);
+// const CssTextField = withStyles({
+//     root: {
+//       '& label.Mui-focused': {
+//         color: 'green',
+//       },
+//       '& .MuiInput-underline:after': {
+//         borderBottomColor: 'green',
+//       },
+//       '& .MuiOutlinedInput-root': {
+//         '& fieldset': {
+//           borderColor: 'red',
+//         },
+//         '&:hover fieldset': {
+//           borderColor: 'yellow',
+//         },
+//         '&.Mui-focused fieldset': {
+//           borderColor: 'green',
+//         },
+//       },
+//     },
+//   })(TextField);
 export default function CardDetail() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -157,10 +154,8 @@ export default function CardDetail() {
 
        <TextField
           id="filled-full-width"
-          label="Comments"
           style={{ margin: 8 }}
           placeholder="leave your Comments"
-          helperText="Full width!"
           fullWidth
           margin="normal"
           InputLabelProps={{
@@ -169,15 +164,15 @@ export default function CardDetail() {
           variant="filled"
           display='flex'
         
-
-        /> 
+       /> 
         
 
         <Button
         variant="contained"
-        color="primary"
+        color="secondary"
         className={classes.button}
-        
+        endIcon={<Icon>send</Icon>}
+
       >
         SEND
       </Button>
