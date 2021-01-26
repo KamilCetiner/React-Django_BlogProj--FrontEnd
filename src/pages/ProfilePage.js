@@ -1,10 +1,7 @@
 import React from "react";
 
 import {
-  fade,
-  ThemeProvider,
-  withStyles,
-  createMuiTheme,
+  withStyles
 } from "@material-ui/core/styles";
 
 import TextField from "@material-ui/core/TextField";
@@ -44,16 +41,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
   },
-  image: {
-    backgroundImage: "url(https://picsum.photos/640/480)",
-    backgroundRepeat: "no-repeat",
-    backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[50]
-        : theme.palette.grey[900],
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  },
+ 
   paper: {
     margin: theme.spacing(8, 4),
     display: "flex",
@@ -66,15 +54,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     backgroundColor: theme.palette.primary.main,
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-    marginTop : "4rem",
-
-  },
-  linkWrapper: {
-    textAlign: "center",
-    margin: theme.spacing(1.5),
-  },
+ 
   form: {
     marginTop : "3rem",
     alignItems: "center",

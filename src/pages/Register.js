@@ -91,9 +91,7 @@ export default function SignUp() {
                   name="password2"
                   label="Password Again"
                   type="password"
-                 
-    
-                  
+                    
                 />
                 <Button
                   color="primary"

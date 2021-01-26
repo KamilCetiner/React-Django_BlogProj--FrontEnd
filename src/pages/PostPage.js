@@ -7,7 +7,6 @@ import TextField from "@material-ui/core/TextField";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
-import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
@@ -43,51 +42,31 @@ import Select from '@material-ui/core/Select';
   const useStyles = makeStyles((theme) => ({
     root: {
       height: "100vh",
-    },
-    image: {
-      backgroundImage: "url(https://picsum.photos/640/480)",
-      backgroundRepeat: "no-repeat",
-      backgroundColor:
-        theme.palette.type === "light"
-          ? theme.palette.grey[50]
-          : theme.palette.grey[900],
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    },
+      width : '100%',
+      overflow : 'hidden'
+    },  
     paper: {
       margin: theme.spacing(8, 4),
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      // backgroundColor: "yellow",
     },
     avatar: {
       margin: theme.spacing(1),
       backgroundColor: theme.palette.primary.main,
-    },
-    submit: {
-      margin: theme.spacing(3, 0, 2),
-      marginTop: "4rem",
-    },
-    linkWrapper: {
-      textAlign: "center",
-      margin: theme.spacing(1.5),
-    },
+    }, 
     form: {
       marginTop: "3rem",
       alignItems: "center",
-      // backgroundColor: "green",
-      paddingLeft: "20%",
-      paddingRight: "5%",
+      paddingLeft: "10%",
+      width : '100%',
     },
     form2: {
       marginTop: "3rem",
       alignItems: "center",
-    },
-    margin: {
-      margin: 2,
-      marginTop: 13,
+      width : '100%',
+  
     },
     address: {
       marginTop: 13,

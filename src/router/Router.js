@@ -21,7 +21,7 @@ function AppRouter () {
                 <Route path="/login" component={Login} />
                 <Route path="/profile" component={ProfilePage} />              
                 <Route path="/post" component={PostPage} />              
-                <Route path="/create" component={UpdatePage} />              
+                <Route path="/update" component={UpdatePage} />              
                 
         </Switch>   
         
