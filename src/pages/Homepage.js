@@ -1,13 +1,31 @@
+import React, { useEffect,useState } from 'react';
 import Container from "@material-ui/core/Container";
-// import Typography from "@material-ui/core/Typography";
-import CardList from '../components/CardList'
+import CardList from '../components/CardList';
+import axios from 'axios';
+
+const baseUrl = 'https://blog-backend-ysf.herokuapp.com/list/'
+
+
+
+
 
 const HomePage = () => {
+  const [postData, setPostData] = useState([])
 
+  async function fetchData() {
+    try {
+    const results= await axios.get(baseUrl);
+    setPostData(results?.data)
+    } catch (error) {
+      console.error(error);
+    }
+}
 
+useEffect(() =>{fetchData()},[])
+console.log('post',postData)
   return (
     <Container>
-      <CardList />     
+      <CardList postData = {postData}/>
     </Container>
   );
 };

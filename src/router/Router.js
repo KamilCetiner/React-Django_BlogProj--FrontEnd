@@ -15,7 +15,7 @@ function AppRouter () {
         <Router>
         <Navbar/>
         <Switch>
-                <Route path='/home' component={HomePage} exact />
+                <Route path='/' component={HomePage} exact />
                 <Route path='/detail' component={DetailPages}/>                
                 <Route path='/register' component={Register}/>  
                 <Route path="/login" component={Login} />
