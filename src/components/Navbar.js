@@ -12,7 +12,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import Avatar from '@material-ui/core/Avatar';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import logo from '../assets/dj.jpeg'
+import logo from '../assets/dj.jpeg';
+import Link from '@material-ui/core/Link';
 // import logo2 from '../assets/react.jpeg' 
 
 
@@ -32,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     flexGrow: 1,
+    overflow: 'hidden'
+
     
   },
   menuButton: {
@@ -100,12 +103,14 @@ const handleMenu = (event) => {
    
       <AppBar position="static">
         <Toolbar>
+          <Link href='/'>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             
          
           <Avatar alt="Remy Sharp" src={logo} className={classes.small} />
           
           </IconButton>
+          </Link>
           <Typography variant="h6" className={classes.title}>
           Blog
           </Typography>
@@ -123,9 +128,13 @@ const handleMenu = (event) => {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-
-          <Button color="inherit" className={matches ? null :classes.font}>Login</Button>
+          
+          <Link href="/login" color="inherit" style={{textDecoration:'none'}}>
+          <Button color="inherit" className={matches ? null :classes.font}> Login</Button>
+          </Link>
+          <Link href="/register" color="inherit" style={{textDecoration:'none'}}>
           <Button color="inherit" className={matches ? null :classes.font}>Register</Button>
+          </Link>
           <IconButton
                 aria-label="account of current user"
                 aria-controls="menu-appbar"

@@ -17,6 +17,8 @@ import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import Badge from '@material-ui/core/Badge';
 import Collapse from '@material-ui/core/Collapse';
 import moment from 'moment';
+import Link from '@material-ui/core/Link';
+
 
 
 
@@ -50,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function BlogCard({title,author,commentCount,id,image,likeCount,publishDate,content,updateDate,viewCount}) {
+export default function BlogCard({title,author,commentCount,id,image,likeCount,publishDate,content,updateDate,viewCount, slug }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -61,6 +63,7 @@ export default function BlogCard({title,author,commentCount,id,image,likeCount,p
 
   return (
     <Card className={classes.root}>
+      <Link color='inherit' style={{textDecoration:'none'}} href={`/${slug}/detail/`} >
       <CardHeader className={classes.header}
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
@@ -71,11 +74,14 @@ export default function BlogCard({title,author,commentCount,id,image,likeCount,p
         title={title}
         subheader={moment(publishDate).format('LL')}
       />
+
+      
       <CardMedia
         className={classes.media}
         image= {image}
         title="Paella dish"
       />
+      </Link>
      <CardContent style={{minHeight: 105, maxHeight: 120}} >
      {content.substring(0,111,) +'...'}
         <Typography variant="body2" color="textSecondary" component="p"  style={{height:75, paddingTop:2}}  >

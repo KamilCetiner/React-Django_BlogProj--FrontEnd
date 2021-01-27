@@ -24,6 +24,7 @@ const CardList = ({ postData }) => {
             content = {post.content}
             updateDate = {post.update_date}
             viewCount = {post.view_count}
+            slug={post.slug}
 
             
             />
