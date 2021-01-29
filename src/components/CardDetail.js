@@ -21,6 +21,7 @@ import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
 import moment from 'moment';
 import Badge from '@material-ui/core/Badge';
+
   
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +35,10 @@ const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
     height:55
+  },
+  button2: {
+    margin: theme.spacing(1),
+   
   },
   commentForm:{
     display:"flex", 
@@ -63,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
+
 }));
 
 
@@ -78,6 +84,7 @@ export default function CardDetail({post}) {
 
   return (
     <Card className={matches ? classes.root : classes.root2}>
+    
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
@@ -87,8 +94,10 @@ export default function CardDetail({post}) {
        
         title={post?.title}
         subheader= { moment(post?.publish_date).startOf('hour').fromNow() }
+       
       />
-      <Typography style={{fontSize:15}}>created by {post?.author}</Typography>
+      <Typography style={{fontSize:18, margin:20,color:'crimson'}}>created by {post?.author}</Typography>
+   
       <CardMedia
         className={classes.media}
         image={post?.image}
@@ -116,6 +125,7 @@ export default function CardDetail({post}) {
           <ChatBubbleOutlineIcon />
           </Badge>
         </IconButton>
+        
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -154,7 +164,6 @@ export default function CardDetail({post}) {
         >Send</Button>
       </form>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-
       <CardContent>
           {post?.comments.map((comment) =>{
             return (
@@ -163,11 +172,9 @@ export default function CardDetail({post}) {
             )
             })
           }
-          
-          
+
         </CardContent>
       </Collapse>
     </Card>
   );
 }
-

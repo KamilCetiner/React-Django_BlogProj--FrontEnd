@@ -1,9 +1,4 @@
-import React from "react";
-
-import {
-  withStyles
-} from "@material-ui/core/styles";
-
+import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -13,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import CKEditor from 'ckeditor4-react';
 
 const CssTextField = withStyles({
   root: {
@@ -41,20 +37,17 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
   },
- 
   paper: {
     margin: theme.spacing(8, 4),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    // backgroundColor: "yellow",
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.primary.main,
   },
- 
   form: {
     marginTop : "3rem",
     alignItems: "center",
@@ -145,15 +138,28 @@ const ProfilePage = () => {
               name="address"
               label="Address"
               />
-
+              {
+                matches
+                ?
+                <div className="App" style={{  marginTop:20,width: matches ? "80.5%" : "100%" }}>
+               Add your biografy
+                <CKEditor
+                    data="<p>Hello from CKEditor 4!</p>"
+                    
+                />
+            </div>
+                :
             <CssTextField
-              className={classes.bio}
-              style={{width : matches ? "80.7%" : "100%" }}
-              variant="outlined"
-              id="bio"
-              name="bio"
-              label="Biografy"
+            className={classes.bio}
+            style={{width : matches ? "80.7%" : "100%" }}
+            variant="outlined"
+            id="bio"
+            name="bio"
+            label="Biografy"
+      
               />
+              }
+           
 
             <Button
               color="primary"

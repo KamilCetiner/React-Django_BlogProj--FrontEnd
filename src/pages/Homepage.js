@@ -22,7 +22,7 @@ const HomePage = () => {
 }
 
 useEffect(() =>{fetchData()},[])
-console.log('post',postData)
+
   return (
     <Container>
       <CardList postData = {postData}/>
@@ -30,3 +30,4 @@ console.log('post',postData)
   );
 };
 export default HomePage;
+

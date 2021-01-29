@@ -3,8 +3,7 @@ import BlogCard from "../components/BlogCard";
 
 
 const CardList = ({ postData }) => {
-
-
+ 
   console.log("list", postData);
   return (
     <>
@@ -15,7 +14,7 @@ const CardList = ({ postData }) => {
             <BlogCard 
             key={i}
             title={post.title}
-            author = {post.author} 
+            author = {post.author}
             commentCount = {post.comment_count}
             id = {post.id}
             image = {post.image}
@@ -24,7 +23,7 @@ const CardList = ({ postData }) => {
             content = {post.content}
             updateDate = {post.update_date}
             viewCount = {post.view_count}
-            slug={post.slug}
+            slug= {post.slug}
 
             
             />

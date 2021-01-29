@@ -20,8 +20,6 @@ import moment from 'moment';
 import Link from '@material-ui/core/Link';
 
 
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight:'100%',
@@ -52,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function BlogCard({title,author,commentCount,id,image,likeCount,publishDate,content,updateDate,viewCount, slug }) {
+export default function BlogCard({title,slug,author,commentCount,id,image,likeCount,publishDate,content,updateDate,viewCount}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -74,7 +72,6 @@ export default function BlogCard({title,author,commentCount,id,image,likeCount,p
         title={title}
         subheader={moment(publishDate).format('LL')}
       />
-
       
       <CardMedia
         className={classes.media}
@@ -82,15 +79,14 @@ export default function BlogCard({title,author,commentCount,id,image,likeCount,p
         title="Paella dish"
       />
       </Link>
-     <CardContent style={{minHeight: 105, maxHeight: 120}} >
-     {content.substring(0,111,) +'...'}
-        <Typography variant="body2" color="textSecondary" component="p"  style={{height:75, paddingTop:2}}  >
+      <CardContent >
+        <Typography variant="body2" color="textSecondary" component="p" style={{height:75,paddingTop:2}} >
         {/* style={{textOverflow:'ellipsis',overflow: 'hidden',whiteSpace: 'nowrap'}} */}
-        {content.lenght < 110 ? content : content.substring(0,111) + '. . .'}
+        {content.substring(0,111) + '. . .'}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites"> 
+        <IconButton aria-label="add to favorites">
         <Badge badgeContent={likeCount} color="secondary"> 
           <FavoriteIcon />
           </Badge>
@@ -108,6 +104,7 @@ export default function BlogCard({title,author,commentCount,id,image,likeCount,p
           <ChatBubbleOutlineIcon />
           </Badge>
         </IconButton>
+
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -122,13 +119,7 @@ export default function BlogCard({title,author,commentCount,id,image,likeCount,p
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>
-
-          {content?.length < 110 
-              ? 'No more content...'
-              : 
-              '➡️   . . .    ' + content.substring(111,)
-            }
-          
+            {content.length < 110 ? "No more Content" : '➡️   . . .    ' + content.substring(111,)}
             </Typography>
           
         </CardContent>
