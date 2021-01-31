@@ -69,7 +69,7 @@ const HomePage = () => {
     }
 
 
-    {if (loading) {
+    if (loading) {
       return (
         <div className={classes.container} >
         <img className={classes.styleLogo} src={logo} alt="loading..." />
@@ -90,6 +90,6 @@ const HomePage = () => {
       <CardList postData={currentPosts} />
     </Container>
     )
-    }
+    
 };
 export default HomePage;
